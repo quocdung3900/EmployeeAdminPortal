@@ -40,7 +40,6 @@ namespace EmployeeAdminPortal.Controllers
         public IActionResult Add(int idnghi, int idluong, bool cophep, string lydo, DateOnly ngaynghibatdau, DateTimeOffset ngaynghiketthuc, string nguoiduyet)
         {
             Nghiviec n = new Nghiviec();
-
             n.Idluong = idluong;
             n.Cophep = cophep;
             n.Lydo = lydo;

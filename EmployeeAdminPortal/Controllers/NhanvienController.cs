@@ -8,7 +8,7 @@ namespace EmployeeAdminPortal.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-   
+
     public class NhanvienController : ControllerBase
     {
         DataContext dbc;
@@ -36,10 +36,9 @@ namespace EmployeeAdminPortal.Controllers
         }
         [HttpPost]
         [Route("/Nhanvien/Insert")]
-        public IActionResult Add( string hoten, bool gioitinh, DateOnly ngaysinh, string diachi, string quequan, int dienthoai, string email, int cccd, string quoctich, bool tthonnhan, string qtct)
+        public IActionResult Add(string hoten, bool gioitinh, DateOnly ngaysinh, string diachi, string quequan, int dienthoai, string email, int cccd, string quoctich, bool tthonnhan, string qtct)
         {
             Nhanvien nv = new Nhanvien();
-           
             nv.Hoten = hoten;
             nv.Gioitinh = gioitinh;
             nv.Ngaysinh = ngaysinh;
@@ -84,7 +83,6 @@ namespace EmployeeAdminPortal.Controllers
         {
             Nhanvien nv = new Nhanvien();
             nv.Idnv = idnv;
-
             dbc.Nhanviens.Remove(nv);
             dbc.SaveChanges();
             return Ok(new { nv });

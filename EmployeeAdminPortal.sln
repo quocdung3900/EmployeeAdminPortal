@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAdminPortal", "EmployeeAdminPortal\EmployeeAdminPortal.csproj", "{330C13EC-1944-4226-9B3B-DDDCD30BD52C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeAdminPortal", "EmployeeAdminPortal\EmployeeAdminPortal.csproj", "{330C13EC-1944-4226-9B3B-DDDCD30BD52C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{26B6202A-25E4-457F-924B-04587394A4C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{330C13EC-1944-4226-9B3B-DDDCD30BD52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{330C13EC-1944-4226-9B3B-DDDCD30BD52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{330C13EC-1944-4226-9B3B-DDDCD30BD52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B6202A-25E4-457F-924B-04587394A4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B6202A-25E4-457F-924B-04587394A4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B6202A-25E4-457F-924B-04587394A4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B6202A-25E4-457F-924B-04587394A4C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

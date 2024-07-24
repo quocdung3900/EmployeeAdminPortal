@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Danh sách Nhân viên";
+}
+<h1>@ViewData["Title"]</h1>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="//cdn.datatables.net/2.1.0/js/dataTables.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/2.1.0/css/dataTables.dataTables.min.css">
+<table idnv="tbl1">
+    <thead>
+        <tr>
+            <th>IDNV</th>
+            <th>Họ tên</th>
+            <th>Giới tính</th>
+            <th>Ngày sinh</th>
+            <th>Địa chỉ</th>
+            <th>Quê quán</th>
+            <th>Email</th>
+            <th>CCCD</th>
+            <th>Quốc tịch</th>
+            <th>TT Hôn nhân</th>
+            <th>QTCT</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<script>
+    $(document).ready(function(){
+        var url = "https://localhost:7147/Nhanvien/List";
+        $.post(url, {}, function (data) {
+            ds = data.data;
+            table_direct = new DataTable('#tbl1', {
+
+                data: ds,
+                columns: [
+                    { "data": "idnv", width: 150, orderable: false },
+                        { "data": "hoten" },
+                        { "data": "gioitinh" },
+                        { "data": "ngaysinh" },
+                        { "data": "diachi" },
+                        { "data": "quequan" },
+                        { "data": "email" },
+                        { "data": "cccd" },
+                        { "data": "quoctich" },
+                        { "data": "tthonnhan" },
+                        { "data": "qtct" },
+              
+                ]
+
+            });
+        });
+    });
+</script>
