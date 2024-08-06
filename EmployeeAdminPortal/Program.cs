@@ -1,5 +1,10 @@
 using EmployeeAdminPortal.ModelFromDB;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,9 +42,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors();
+app.UseCors(
+        options => {
+            options.WithOrigins("https://localhost:7147").AllowAnyMethod();
+                 
 
-//app.UseAuthorization();
+
+    });
+
+app.UseAuthorization();
 
 app.MapControllers();
 

@@ -37,12 +37,11 @@ namespace EmployeeAdminPortal.Controllers
 
         [HttpPost]
         [Route("/Nganhang/Insert")]
-        public IActionResult Add(int idnh, string tennh, string chinhanh)
+        public IActionResult Add(int idnh, string tennh, int idchinhanh, string loaitien)
         {
             Nganhang nh = new Nganhang();
 
-            nh.Tennh = tennh;
-            nh.Chinhanh = chinhanh;
+            nh.Tennh = tennh;        
             dbc.Nganhangs.Add(nh);
             dbc.SaveChanges();
             return Ok(new { nh });
@@ -50,12 +49,11 @@ namespace EmployeeAdminPortal.Controllers
 
         [HttpPut]
         [Route("/Nganhang/Update")]
-        public IActionResult Update(int idnh, string tennh, string chinhanh)
+        public IActionResult Update(int idnh, string tennh, int idchinhanh, string loaitien)
         {
             Nganhang nh = new Nganhang();
             nh.Idnh = idnh;
             nh.Tennh = tennh;
-            nh.Chinhanh = chinhanh;
             dbc.Nganhangs.Update(nh);
             dbc.SaveChanges();
             return Ok(new { nh });

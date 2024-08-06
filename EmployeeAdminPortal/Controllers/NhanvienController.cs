@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace EmployeeAdminPortal.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
 
     public class NhanvienController : ControllerBase
     {
@@ -36,13 +38,12 @@ namespace EmployeeAdminPortal.Controllers
         }
         [HttpPost]
         [Route("/Nhanvien/Insert")]
-        public IActionResult Add(string hoten, bool gioitinh, DateOnly ngaysinh, string diachi, string quequan, int dienthoai, string email, int cccd, string quoctich, bool tthonnhan, string qtct)
+        public IActionResult Add(string hoten, bool gioitinh, DateOnly ngaysinh,  string quequan, int dienthoai, string email, int cccd, string quoctich, bool tthonnhan, string qtct)
         {
             Nhanvien nv = new Nhanvien();
             nv.Hoten = hoten;
             nv.Gioitinh = gioitinh;
             nv.Ngaysinh = ngaysinh;
-            nv.Diachi = diachi;
             nv.Quequan = quequan;
             nv.Dienthoai = dienthoai;
             nv.Email = email;
@@ -57,14 +58,13 @@ namespace EmployeeAdminPortal.Controllers
 
         [HttpPut]
         [Route("/Nhanvien/Update")]
-        public IActionResult Update(int idnv, string hoten, bool gioitinh, DateOnly ngaysinh, string diachi, string quequan, int dienthoai, string email, int cccd, string quoctich, bool tthonnhan, string qtct)
+        public IActionResult Update(int idnv, string hoten, bool gioitinh, DateOnly ngaysinh,  string quequan, int dienthoai, string email, int cccd, string quoctich, bool tthonnhan, string qtct)
         {
             Nhanvien nv = new Nhanvien();
             nv.Idnv = idnv;
             nv.Hoten = hoten;
             nv.Gioitinh = gioitinh;
             nv.Ngaysinh = ngaysinh;
-            nv.Diachi = diachi;
             nv.Quequan = quequan;
             nv.Dienthoai = dienthoai;
             nv.Email = email;
@@ -83,6 +83,10 @@ namespace EmployeeAdminPortal.Controllers
         {
             Nhanvien nv = new Nhanvien();
             nv.Idnv = idnv;
+            if (idnv == null)
+            {
+                return NotFound();
+            }
             dbc.Nhanviens.Remove(nv);
             dbc.SaveChanges();
             return Ok(new { nv });

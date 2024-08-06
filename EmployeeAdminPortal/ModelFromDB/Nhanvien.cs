@@ -23,10 +23,6 @@ public partial class Nhanvien
     [Column("NGAYSINH")]
     public DateOnly? Ngaysinh { get; set; }
 
-    [Column("DIACHI")]
-    [StringLength(200)]
-    public string? Diachi { get; set; }
-
     [Column("QUEQUAN")]
     [StringLength(50)]
     public string? Quequan { get; set; }
@@ -63,4 +59,7 @@ public partial class Nhanvien
 
     [InverseProperty("IdnvNavigation")]
     public virtual ICollection<Phongban> Phongbans { get; set; } = new List<Phongban>();
+
+    [InverseProperty("IdnvNavigation")]
+    public virtual ICollection<Diachi> Diachis { get; set; } = new List<Diachi>();
 }

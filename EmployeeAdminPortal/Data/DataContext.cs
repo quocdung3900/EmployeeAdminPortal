@@ -17,9 +17,13 @@ public partial class DataContext : DbContext
 
     public virtual DbSet<Baohiem> Baohiems { get; set; }
 
+    public virtual DbSet<Chinhanh> Chinhanhs { get; set; }
+
     public virtual DbSet<Chucdanh> Chucdanhs { get; set; }
 
     public virtual DbSet<Chucvu> Chucvus { get; set; }
+
+    public virtual DbSet<Diachi> Diachis { get; set; }
 
     public virtual DbSet<Taisan> Taisans { get; set; }
 

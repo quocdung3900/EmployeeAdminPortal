@@ -17,9 +17,16 @@ public partial class Nganhang
     [StringLength(50)]
     public string? Tennh { get; set; }
 
-    [Column("CHINHANH")]
-    [StringLength(200)]
-    public string? Chinhanh { get; set; }
+    [Column("IDCHINHANH")]
+    public int Idchinhanh { get; set; }
+
+    [Column("LOAITIEN")]
+    [StringLength(50)]
+    public string? Loaitien { get; set; }
+
+    [ForeignKey("Idchinhanh")]
+    [InverseProperty("Nganhangs")]
+    public virtual Chinhanh? IdchinhanhNavigation { get; set; }
 
     [InverseProperty("IdnhNavigation")]
     public virtual ICollection<Luong> Luongs { get; set; } = new List<Luong>();
